@@ -33,7 +33,7 @@ function generateBaselineFromResults(
 
   for (const result of results) {
     for (const message of result.messages) {
-      if (message.ruleId) {
+      if (message.ruleId && message.severity === 2) {
         const key = lintMessageToKey(opts.cwd, result.filePath, message);
 
         (baseline[key] ??= []).push({
@@ -63,46 +63,38 @@ function processResults(
 
     const newResults = results.map((result) => {
       let errorCount = 0;
-      let warningCount = 0;
       let fatalErrorCount = 0;
       let fixableErrorCount = 0;
-      let fixableWarningCount = 0;
       const filteredMessages: Linter.LintMessage[] = [];
 
       for (const message of result.messages) {
         if (message.ruleId) {
           const key = lintMessageToKey(opts.cwd, result.filePath, message);
 
-          // Check if we already have messages at this location
-          const oldMessages = oldBaseline[key];
-
-          if (oldMessages) {
-            // Check if the message is already known and has the same severity
-            const oldMessage = oldMessages.find(
-              (m) =>
-                m.ruleId === message.ruleId && m.severity === message.severity
-            );
-
-            if (oldMessage) {
-              continue;
-            }
-          }
-
           if (message.severity === 2) {
+            // Check if we already have messages at this location
+            const oldMessages = oldBaseline[key];
+
+            if (oldMessages) {
+              // Check if the message is already known
+              const oldMessage = oldMessages.find(
+                (m) =>
+                  m.ruleId === message.ruleId && m.message === message.message
+              );
+
+              if (oldMessage) {
+                continue;
+              }
+            }
+
             errorCount++;
-          } else if (message.severity === 1) {
-            warningCount++;
-          }
 
-          if (message.fatal) {
-            fatalErrorCount++;
-          }
+            if (message.fatal) {
+              fatalErrorCount++;
+            }
 
-          if (message.fix) {
-            if (message.severity === 2) {
+            if (message.fix) {
               fixableErrorCount++;
-            } else if (message.severity === 1) {
-              fixableWarningCount++;
             }
           }
 
@@ -113,10 +105,8 @@ function processResults(
       return {
         ...result,
         errorCount,
-        warningCount,
         fatalErrorCount,
         fixableErrorCount,
-        fixableWarningCount,
         messages: filteredMessages,
       };
     });
