@@ -1,6 +1,6 @@
 # eslint-baseline
 
-eslint-baseline is a tool to help adopting ESLint in legacy codebases.
+eslint-baseline is a tool to help adopting ESLint in a legacy codebase.
 
 ## Getting Started
 
@@ -10,10 +10,9 @@ Install eslint-baseline
 npm install --save-dev eslint-baseline
 ```
 
-Update your lint scripts
+Update your lint scripts in `package.json`
 
 ```json
-// package.json
 {
   "scripts": {
     "lint": "eslint-baseline .",
