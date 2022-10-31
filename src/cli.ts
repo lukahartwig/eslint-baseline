@@ -4,9 +4,6 @@ import { command, flag, option, restPositionals, run, string } from "cmd-ts";
 import { ESLint, Linter } from "eslint";
 import { z } from "zod";
 
-// @ts-expect-error only for testing
-var test = 4;
-
 const baselineSchema = z.record(
   z.array(
     z.object({
