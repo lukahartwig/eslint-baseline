@@ -6,6 +6,13 @@
     "node": ">=18.0.0"
   },
   "packageManager": "pnpm@7.12.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukahartwig/eslint-overlook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukahartwig/eslint-overlook/issues"
+  },
   "license": "MIT",
   "bin": {
     "eslint-overlook": "bin/eslint-overlook.js"
