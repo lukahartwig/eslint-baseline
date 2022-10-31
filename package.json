@@ -1,0 +1,41 @@
+{
+  "name": "eslint-baseline",
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@7.12.2",
+  "license": "MIT",
+  "bin": {
+    "eslint-baseline": "bin/eslint-baseline.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "./bin/eslint-baseline.js .",
+    "lint:update-baseline": "./bin/eslint-baseline.js -u ."
+  },
+  "author": "Luka Hartwig",
+  "dependencies": {
+    "cmd-ts": "^0.11.0",
+    "zod": "^3.19.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.26.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node18-strictest-esm": "^1.0.1",
+    "@types/eslint": "^8.4.9",
+    "@types/node": "^18.11.8",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  }
+}
