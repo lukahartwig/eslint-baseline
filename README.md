@@ -1,13 +1,13 @@
-# eslint-baseline
+# eslint-overlook
 
-eslint-baseline is a tool to help adopting ESLint in a legacy codebase.
+Trying to add a linter to a legacy project can be though. eslint-overlook let's you pretend the existing errors and warnings don't exists and you can start from a clean slate.
 
 ## Getting Started
 
-Install eslint-baseline
+Install eslint-overlook
 
 ```sh
-npm install --save-dev eslint-baseline
+npm install --save-dev eslint-overlook
 ```
 
 Update your lint scripts in `package.json`
@@ -15,8 +15,8 @@ Update your lint scripts in `package.json`
 ```json
 {
   "scripts": {
-    "lint": "eslint-baseline .",
-    "lint:update-baseline": "eslint-baseline --update-baseline ."
+    "lint": "eslint-overlook .",
+    "lint:update-baseline": "eslint-overlook --update-baseline ."
   }   
 }
 ```
@@ -27,7 +27,7 @@ Run the script to create a baseline
 npm run lint
 ```
 
-You should see a file `.eslint-baseline.json` that contains all current errors
+You should see a file `.eslint-overlook.json` that contains all current errors
 and warnings from the project. Subsequent runs of `npm run lint` will only show new warnings and errors.
 
 After fixing some errors you can run the update script to update the baseline to the current state.

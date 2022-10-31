@@ -1,5 +1,5 @@
 {
-  "name": "eslint-baseline",
+  "name": "eslint-overlook",
   "version": "0.0.0",
   "type": "module",
   "engines": {
@@ -8,7 +8,7 @@
   "packageManager": "pnpm@7.12.2",
   "license": "MIT",
   "bin": {
-    "eslint-baseline": "bin/eslint-baseline.js"
+    "eslint-overlook": "bin/eslint-overlook.js"
   },
   "files": [
     "bin",
@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "./bin/eslint-baseline.js .",
-    "lint:update-baseline": "./bin/eslint-baseline.js -u ."
+    "lint": "./bin/eslint-overlook.js .",
+    "lint:update-baseline": "./bin/eslint-overlook.js -u ."
   },
   "author": "Luka Hartwig",
   "dependencies": {

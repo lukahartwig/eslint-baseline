@@ -130,13 +130,13 @@ function processResults(
 }
 
 const app = command({
-  name: "eslint-baseline",
+  name: "eslint-overlook",
   description: "Run ESLint with a baseline",
   args: {
     baseline: option({
       long: "baseline-file",
       description: "Path to the baseline file",
-      defaultValue: () => ".eslint-baseline.json",
+      defaultValue: () => ".eslint-overlook.json",
       type: string,
     }),
     update: flag({
