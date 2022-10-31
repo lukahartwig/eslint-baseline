@@ -1,1 +1,16 @@
-{}
+{
+  "src/cli.ts:8:1": [
+    {
+      "ruleId": "no-var",
+      "message": "Unexpected var, use let or const instead.",
+      "severity": 2
+    }
+  ],
+  "src/cli.ts:8:5": [
+    {
+      "ruleId": "@typescript-eslint/no-unused-vars",
+      "message": "'test' is assigned a value but never used.",
+      "severity": 1
+    }
+  ]
+}
