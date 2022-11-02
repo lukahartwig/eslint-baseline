@@ -41,4 +41,4 @@ npm run lint:update-baseline
 
 ## Known limitations
 
-* The heuristic to detect already known errors is based on the location of the error. Editing a file with errors might move those errors to a different location and thus will show them as "new" in the output. As a workaround you have to update the baseline.
+- The heuristic to detect already known errors is based on the location of the error. Editing a file with errors might move those errors to a different location and thus will show them as "new" in the output. As a workaround you have to update the baseline.

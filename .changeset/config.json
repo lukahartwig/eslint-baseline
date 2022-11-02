@@ -1,0 +1,12 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
+  "access": "public",
+  "baseBranch": "main",
+  "commit": false,
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "lukahartwig/eslint-overlook"
+    }
+  ]
+}
