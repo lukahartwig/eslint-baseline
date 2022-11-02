@@ -1,23 +1,27 @@
 # eslint-overlook
 
-Trying to add a linter to a legacy project can be though. eslint-overlook let's you pretend the existing errors and warnings don't exists and you can start from a clean slate.
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lukahartwig/eslint-overlook/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/eslint-overlook.svg?style=flat)](https://www.npmjs.com/package/eslint-overlook)
+
+Trying to add a linter to a legacy project can be though. eslint-overlook let's you pretend the existing errors don't exists and you can start from a clean slate.
 
 ## Getting Started
 
 Install eslint-overlook
 
 ```sh
-npm install --save-dev eslint-overlook
+npm install --save-dev eslint eslint-overlook
 ```
 
-Update your lint scripts in `package.json`
+If you already have ESlint setup update the lint scripts in `package.json`
 
-```json
+```diff
 {
   "scripts": {
-    "lint": "eslint-overlook .",
-    "lint:update-baseline": "eslint-overlook --update-baseline ."
-  }   
+-   "lint": "eslint ."
++   "lint": "eslint-overlook .",
++   "lint:update-baseline": "eslint-overlook --update-baseline ."
+  }
 }
 ```
 
@@ -27,10 +31,9 @@ Run the script to create a baseline
 npm run lint
 ```
 
-You should see a file `.eslint-overlook.json` that contains all current errors
-and warnings from the project. Subsequent runs of `npm run lint` will only show new warnings and errors.
+There should be a file `.eslint-overlook.json` that contains all current lint errors. Subsequent runs of `npm run lint` will only show new errors.
 
-After fixing some errors you can run the update script to update the baseline to the current state.
+To update the baseline run
 
 ```sh
 npm run lint:update-baseline
