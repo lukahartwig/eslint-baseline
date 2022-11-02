@@ -21,6 +21,13 @@
     "bin",
     "dist"
   ],
+  "keywords": [
+    "cli",
+    "code",
+    "eslint",
+    "linter",
+    "quality"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "./bin/eslint-overlook.js .",
