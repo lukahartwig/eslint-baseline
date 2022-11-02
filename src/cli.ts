@@ -137,7 +137,7 @@ const app = command({
     }),
     cwd: option({
       long: "cwd",
-      defaultValue: process.cwd,
+      defaultValue: () => process.cwd(),
       description:
         "The current working directory. Files in the baseline are resolved relative to this.",
       type: string,
@@ -171,4 +171,4 @@ const app = command({
   },
 });
 
-run(app, process.argv.slice(2));
+await run(app, process.argv.slice(2));
