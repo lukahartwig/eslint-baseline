@@ -23,6 +23,10 @@ async function runCLI(args: string[]): Promise<number | null> {
   });
 }
 
+async function writeBaseline(content: string, name = ".eslint-overlook.json") {
+  return writeFile(join(cwd, name), content, "utf8");
+}
+
 async function readBaseline(name = ".eslint-overlook.json"): Promise<string> {
   return readFile(join(cwd, name), "utf8");
 }
@@ -56,10 +60,7 @@ test("generate baseline with errors", async () => {
 });
 
 test("pass with baseline", async () => {
-  const baseline = join(cwd, ".eslint-overlook.json");
-  await writeFile(
-    baseline,
-    `
+  await writeBaseline(`
     {
       "file.js:1:7": [
         {
@@ -69,8 +70,7 @@ test("pass with baseline", async () => {
         }
       ]
     }
-  `
-  );
+  `);
   const filepath = join(cwd, "file.js");
   await writeFile(filepath, `const a = 'b'\n`);
   const code = await runCLI(["."]);
@@ -78,10 +78,7 @@ test("pass with baseline", async () => {
 });
 
 test("updates baseline", async () => {
-  const baseline = join(cwd, ".eslint-overlook.json");
-  await writeFile(
-    baseline,
-    `
+  await writeBaseline(`
     {
       "file.js:1:7": [
         {
@@ -91,8 +88,7 @@ test("updates baseline", async () => {
         }
       ]
     }
-  `
-  );
+  `);
   const filepath = join(cwd, "file.js");
   await writeFile(filepath, "console.log()\n");
   const code = await runCLI(["--update-baseline", "."]);
