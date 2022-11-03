@@ -1,5 +1,11 @@
 # eslint-baseline
 
+## 0.3.2
+
+### Patch Changes
+
+- [`ea8acc2`](https://github.com/lukahartwig/eslint-baseline/commit/ea8acc265b3db9e1fb95adc9453b12c52a986fb3) Thanks [@lukahartwig](https://github.com/lukahartwig)! - Small improvements to package metadata
+
 ## 0.3.1
 
 ### Patch Changes
