@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "bin": {
-    "eslint-baseline": "bin/eslint-baseline.js"
+    "eslint-baseline": "bin/cli.js"
   },
   "files": [
     "bin",
