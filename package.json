@@ -1,5 +1,6 @@
 {
   "name": "eslint-baseline",
+  "description": "Run ESLint with a baseline.",
   "version": "0.3.1",
   "type": "module",
   "engines": {
@@ -22,8 +23,11 @@
     "dist"
   ],
   "keywords": [
+    "baseline",
+    "ci",
     "cli",
     "code",
+    "continuous integration",
     "eslint",
     "linter",
     "quality"
