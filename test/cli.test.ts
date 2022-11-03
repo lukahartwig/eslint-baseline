@@ -13,7 +13,7 @@ afterEach(async () => {
 });
 
 async function runCLI(args: string[]): Promise<number | null> {
-  const spawned = spawn(join(__dirname, "../bin/eslint-baseline.js"), args, {
+  const spawned = spawn(join(__dirname, "../bin/cli.js"), args, {
     cwd,
   });
 
