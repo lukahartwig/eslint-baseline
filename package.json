@@ -1,5 +1,5 @@
 {
-  "name": "eslint-overlook",
+  "name": "eslint-baseline",
   "version": "0.3.0",
   "type": "module",
   "engines": {
@@ -8,14 +8,14 @@
   "packageManager": "pnpm@7.14.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lukahartwig/eslint-overlook.git"
+    "url": "https://github.com/lukahartwig/eslint-baseline.git"
   },
   "bugs": {
-    "url": "https://github.com/lukahartwig/eslint-overlook/issues"
+    "url": "https://github.com/lukahartwig/eslint-baseline/issues"
   },
   "license": "MIT",
   "bin": {
-    "eslint-overlook": "bin/eslint-overlook.js"
+    "eslint-baseline": "bin/eslint-baseline.js"
   },
   "files": [
     "bin",
@@ -31,8 +31,8 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write \"**/*.{js,ts,md}\"",
-    "lint": "./bin/eslint-overlook.js .",
-    "lint:update-baseline": "./bin/eslint-overlook.js -u .",
+    "lint": "./bin/eslint-baseline.js .",
+    "lint:update-baseline": "./bin/eslint-baseline.js -u .",
     "release:publish": "pnpm build && changeset publish",
     "release:version": "changeset version && pnpm format",
     "test": "jest"

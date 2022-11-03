@@ -13,7 +13,7 @@ afterEach(async () => {
 });
 
 async function runCLI(args: string[]): Promise<number | null> {
-  const spawned = spawn(join(__dirname, "../bin/eslint-overlook.js"), args, {
+  const spawned = spawn(join(__dirname, "../bin/eslint-baseline.js"), args, {
     cwd,
   });
 
@@ -27,11 +27,11 @@ async function writeTestFile(content: string, name = "file.js") {
   return writeFile(join(cwd, name), content, "utf8");
 }
 
-async function writeBaseline(content: string, name = ".eslint-overlook.json") {
+async function writeBaseline(content: string, name = ".eslint-baseline.json") {
   return writeFile(join(cwd, name), content, "utf8");
 }
 
-async function readBaseline(name = ".eslint-overlook.json"): Promise<string> {
+async function readBaseline(name = ".eslint-baseline.json"): Promise<string> {
   return readFile(join(cwd, name), "utf8");
 }
 

@@ -6,7 +6,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "lukahartwig/eslint-overlook"
+      "repo": "lukahartwig/eslint-baseline"
     }
   ]
 }
