@@ -3,8 +3,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lukahartwig/eslint-baseline/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/eslint-baseline.svg?style=flat)](https://www.npmjs.com/package/eslint-baseline)
 
-Trying to add a linter to a legacy project can be though. eslint-baseline let's you pretend the existing errors don't exists and you can start from a clean slate.
-
+Trying to add a linter to a legacy project can be tough. eslint-baseline lets you ignore all existing errors by creating a baseline.
 ## Getting Started
 
 Install eslint-baseline
@@ -41,4 +40,4 @@ npm run lint:update-baseline
 
 ## Known limitations
 
-- The heuristic to detect already known errors is based on the location of the error. Editing a file with errors might move those errors to a different location and thus will show them as "new" in the output. As a workaround you have to update the baseline.
+- The heuristic to detect already known errors is based on the location of the error. Editing a file with errors might move those errors to a different location and thus will show them as "new" in the output. As a workaround, you have to update the baseline.
