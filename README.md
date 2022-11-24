@@ -4,6 +4,11 @@
 [![npm version](https://img.shields.io/npm/v/eslint-baseline.svg?style=flat)](https://www.npmjs.com/package/eslint-baseline)
 
 Trying to add a linter to a legacy project can be tough. eslint-baseline lets you ignore all existing errors by creating a baseline.
+
+## Project Status
+
+This project is still in early development. It is usable but non of the APIs are stable yet.
+
 ## Getting Started
 
 Install eslint-baseline
