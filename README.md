@@ -46,3 +46,10 @@ npm run lint:update-baseline
 ## Known limitations
 
 - The heuristic to detect already known errors is based on the location of the error. Editing a file with errors might move those errors to a different location and thus will show them as "new" in the output. As a workaround, you have to update the baseline.
+
+## Alternatives
+
+A list of similar project
+
+- [@lint-todo/eslint-formatter-todo](https://www.npmjs.com/package/@lint-todo/eslint-formatter-todo)
+- [@luminateone/eslint-baseline](https://www.npmjs.com/package/@luminateone/eslint-baseline)
