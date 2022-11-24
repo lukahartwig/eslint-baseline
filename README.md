@@ -49,7 +49,7 @@ npm run lint:update-baseline
 
 ## Alternatives
 
-A list of similar project
+A list of similar projects
 
 - [@lint-todo/eslint-formatter-todo](https://www.npmjs.com/package/@lint-todo/eslint-formatter-todo)
 - [@luminateone/eslint-baseline](https://www.npmjs.com/package/@luminateone/eslint-baseline)
