@@ -3,6 +3,17 @@ import { createHash } from "node:crypto";
 import type { Linter } from "eslint";
 import type { LintViolation } from "./types.js";
 
+/**
+ * These helper methods are copied from @lint-todo/utils
+ * @see https://github.com/lint-todo/utils/blob/59e4b2e475e2a8becb18d10d86a1c86bfd64d732/src/source.ts
+ * 
+ * I don't want to add a dependency on @lint-todo/utils on it since I'm probably
+ * going to change the implementation of these methods in the future.
+ * 
+ * For now, I'm copying their approach of using the source code as heuristic to
+ * determine if two violations are the same.
+ */
+
 interface Range {
   start: {
     line: number;
