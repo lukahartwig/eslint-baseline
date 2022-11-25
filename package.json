@@ -43,7 +43,8 @@
   },
   "author": "Luka Hartwig",
   "dependencies": {
-    "cmd-ts": "^0.11.0"
+    "cmd-ts": "^0.11.0",
+    "zod": "^3.19.1"
   },
   "peerDependencies": {
     "eslint": "^8.26.0"
