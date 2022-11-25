@@ -22,6 +22,11 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   root: true,
+  rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "node/no-missing-import": "off",
+  },
   settings: {
     jest: {
       version: jestPackageJson.version,

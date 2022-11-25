@@ -15,6 +15,7 @@ afterEach(async () => {
 async function runCLI(args: string[]): Promise<number | null> {
   const spawned = spawn(join(__dirname, "../bin/cli.js"), args, {
     cwd,
+    stdio: "inherit",
   });
 
   return new Promise((resolve, reject) => {
@@ -40,7 +41,11 @@ test("generate empty baseline", async () => {
   const code = await runCLI(["."]);
   const baseline = await readBaseline();
   expect(code).toBe(0);
-  expect(baseline).toMatchInlineSnapshot(`"{}"`);
+  expect(baseline).toMatchInlineSnapshot(`
+    "{
+      "files": {}
+    }"
+  `);
 });
 
 test("generate baseline with errors", async () => {
@@ -50,13 +55,18 @@ test("generate baseline with errors", async () => {
   expect(code).toBe(1);
   expect(baseline).toMatchInlineSnapshot(`
     "{
-      "file.js:1:7": [
-        {
-          "ruleId": "no-unused-vars",
-          "message": "'a' is assigned a value but never used.",
-          "severity": 2
+      "files": {
+        "file.js:1:7-1:8": {
+          "errors": [
+            {
+              "ruleId": "no-unused-vars",
+              "message": "'a' is assigned a value but never used.",
+              "severity": 2,
+              "hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+            }
+          ]
         }
-      ]
+      }
     }"
   `);
 });
@@ -64,13 +74,18 @@ test("generate baseline with errors", async () => {
 test("pass with baseline", async () => {
   await writeBaseline(`
     {
-      "file.js:1:7": [
-        {
-          "message": "'a' is assigned a value but never used.",
-          "ruleId": "no-unused-vars",
-          "severity": 2
+      "files": {
+        "file.js:1:7-1:8": {
+          "errors": [
+            {
+              "ruleId": "no-unused-vars",
+              "message": "'a' is assigned a value but never used.",
+              "severity": 2,
+              "hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+            }
+          ]
         }
-      ]
+      }
     }
   `);
   await writeTestFile(`const a = 'b'\n`);
@@ -81,18 +96,26 @@ test("pass with baseline", async () => {
 test("updates baseline", async () => {
   await writeBaseline(`
     {
-      "file.js:1:7": [
-        {
-          "message": "'a' is assigned a value but never used.",
-          "ruleId": "no-unused-vars",
-          "severity": 2
+      "files": {
+        "file.js:1:7": {
+          "errors": [
+            {
+              "message": "'a' is assigned a value but never used.",
+              "ruleId": "no-unused-vars",
+              "severity": 2
+            }
+          ]
         }
-      ]
+      }
     }
   `);
   await writeTestFile("console.log()\n");
   const code = await runCLI(["--update-baseline", "."]);
   expect(code).toBe(0);
   const newBaseline = await readBaseline();
-  expect(newBaseline).toMatchInlineSnapshot(`"{}"`);
+  expect(newBaseline).toMatchInlineSnapshot(`
+    "{
+      "files": {}
+    }"
+  `);
 });
