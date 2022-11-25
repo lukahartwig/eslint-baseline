@@ -1,5 +1,11 @@
 # eslint-baseline
 
+## 0.4.0
+
+### Minor Changes
+
+- [#9](https://github.com/lukahartwig/eslint-baseline/pull/9) [`6e490f5`](https://github.com/lukahartwig/eslint-baseline/commit/6e490f5642fb240c03f8f7efc6dfb3b4483bbc48) Thanks [@lukahartwig](https://github.com/lukahartwig)! - Added a hash based approach to identify known lint violations. This should be an improvement over the location based approach however it might lead to performance problems due to the hashing algorithm.
+
 ## 0.3.2
 
 ### Patch Changes
