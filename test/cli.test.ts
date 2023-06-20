@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { afterEach, beforeEach, expect, test } from "vitest";
 
 let cwd: string;
 
@@ -43,7 +44,7 @@ test("generate empty baseline", async () => {
   expect(code).toBe(0);
   expect(baseline).toMatchInlineSnapshot(`
     "{
-      "files": {}
+      \\"files\\": {}
     }"
   `);
 });
@@ -55,14 +56,14 @@ test("generate baseline with errors", async () => {
   expect(code).toBe(1);
   expect(baseline).toMatchInlineSnapshot(`
     "{
-      "files": {
-        "file.js:1:7-1:8": {
-          "errors": [
+      \\"files\\": {
+        \\"file.js:1:7-1:8\\": {
+          \\"errors\\": [
             {
-              "ruleId": "no-unused-vars",
-              "message": "'a' is assigned a value but never used.",
-              "severity": 2,
-              "hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+              \\"ruleId\\": \\"no-unused-vars\\",
+              \\"message\\": \\"'a' is assigned a value but never used.\\",
+              \\"severity\\": 2,
+              \\"hash\\": \\"ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb\\"
             }
           ]
         }
@@ -115,7 +116,7 @@ test("updates baseline", async () => {
   const newBaseline = await readBaseline();
   expect(newBaseline).toMatchInlineSnapshot(`
     "{
-      "files": {}
+      \\"files\\": {}
     }"
   `);
 });

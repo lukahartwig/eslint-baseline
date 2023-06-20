@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import type { ESLint } from "eslint";
 import { createEngine } from "./baseline/engine.js";
-import type { Engine } from "./baseline/types";
+import type { Engine } from "./baseline/types.js";
 
 interface ProcessorOptions {
   cwd: string;

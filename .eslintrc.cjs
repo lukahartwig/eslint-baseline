@@ -1,5 +1,3 @@
-const jestPackageJson = require("jest/package.json");
-
 module.exports = {
   env: {
     node: true,
@@ -11,14 +9,13 @@ module.exports = {
       extends: [
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:jest/recommended",
       ],
     },
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ["./tsconfig.eslint.json"],
+    project: ["./tsconfig.json"],
   },
   plugins: ["@typescript-eslint"],
   root: true,
@@ -26,10 +23,5 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "node/no-missing-import": "off",
-  },
-  settings: {
-    jest: {
-      version: jestPackageJson.version,
-    },
   },
 };

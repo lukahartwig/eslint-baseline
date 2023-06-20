@@ -1,7 +1,7 @@
 import { createBuilder } from "./build.js";
 import { createFilter } from "./filter.js";
 import { createSerializer } from "./serialize.js";
-import type { Engine } from "./types";
+import type { Engine } from "./types.js";
 
 interface CreateEngineOptions {
   cwd: string;

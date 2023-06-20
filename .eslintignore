@@ -1,3 +1,4 @@
+.eslintrc.cjs
 bin
 dist
 node_modules
